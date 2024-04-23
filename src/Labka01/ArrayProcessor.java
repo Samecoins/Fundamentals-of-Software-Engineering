@@ -1,3 +1,5 @@
+package Labka01;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -33,10 +35,11 @@ public class ArrayProcessor {
         }
     }
 
-    public static void main(String[] arg) {
-        Scanner scanner = new Scanner(System.in);
-        int[] mas = new int[scanner.nextInt()];
-        ArrayProcessor processor = new ArrayProcessor(mas);
-        System.out.println(processor.processArray());
+    public String arrayToString() {
+        StringBuilder sb = new StringBuilder();
+        for (int value : array) {
+            sb.append(value).append(" ");  // Добавляем каждый элемент массива в строку с пробелом в качестве разделителя
+        }
+        return sb.toString().trim();  // Возвращаем строку, убирая лишний пробел в конце
     }
 }

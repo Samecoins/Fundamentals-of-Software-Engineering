@@ -1,3 +1,5 @@
+package Labka01;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -12,9 +14,21 @@ public class MatrixProcessor extends ArrayProcessor {
         for (int i = 0; i < rows; i++) {
             matrix[i] = new int[random.nextInt(maxColumns) + 1];
             for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = random.nextInt(-50,50) ;
+                matrix[i][j] = random.nextInt(-9,10) ;
             }
         }
+    }
+
+    public void processPrintResults() {
+        for (int[] row : matrix) {
+            ArrayProcessor processor = new ArrayProcessor(row);
+            System.out.println("Строка: " + processor.arrayToString());
+            System.out.println(processor.processArray());
+        }
+    }
+
+    public int[][] getMatrix() {
+        return matrix;
     }
 
     // Метод обработки прямоугольного массива
@@ -70,10 +84,16 @@ public class MatrixProcessor extends ArrayProcessor {
 
         if (sumEven > sumOdd) {
             return "Сумма элементов на четных местах больше: " + sumEven;
-        } else if (sumOdd > sumEven) {
-            return "Сумма элементов на нечетных местах больше: " + sumOdd;
         } else {
-            return "Суммы элементов равны: " + sumEven;
+            return "Сумма элементов на нечетных местах больше: " + sumOdd;
         }
     }
+
+    public void printMatrix() {
+        for (int[] row : matrix) {
+            ArrayProcessor rowProcessor = new ArrayProcessor(row);
+            System.out.println(rowProcessor.arrayToString());
+        }
+    }
+
 }
