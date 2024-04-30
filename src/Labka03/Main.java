@@ -1,14 +1,23 @@
 package Labka03;
-import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.print("Введите размер массива: ");
         int size = scanner.nextInt();
-        scanner.close();
 
-        DerivedArray derivedArray = new DerivedArray(size);
-        System.out.println("Обработка и вывод элементов двумерного массива:");
-        System.out.println(derivedArray.processMatrix());
+        ArrayProcessor processor = new ArrayProcessor(size);
+        System.out.println("Сгенерированный массив: " + processor.arrayToString());
+        System.out.println(processor.processArray());
+
+        System.out.println();
+        System.out.println();
+
+        System.out.print("Введите количество строк массива: ");
+        int rows = scanner.nextInt();
+
+        TwoDimArrayProcessor processorMatrix = new TwoDimArrayProcessor(rows);
+        processorMatrix.processArray();
+        scanner.close();
     }
 }
